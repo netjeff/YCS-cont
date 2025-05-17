@@ -803,3 +803,15 @@ html[dark='true'] .ycs-ext-search_link,
 html[dark] .ycs-ext-search_link {
   color: #fff;
 }
+#ycs-search.ycs-search-minimized .ycs-search-controls {
+  display: none;
+}
+#ycs-search.ycs-search-minimized .ycs-search-header {
+  display: block;
+}
+#ycs-search .ycs-search-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 4px;
+}

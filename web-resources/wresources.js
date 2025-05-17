@@ -9752,108 +9752,111 @@
       })()}\n                </div>\n            </div>\n\n            <div id="ycs-search-result" class="ycs-clear"></div>\n\n            <div id="ycs_modal_window" class="ycs_modal">\n                <div class="ycs_modal-content">\n                    <button id="ycs_btn_close_modal" class="ycs_btn_close ycs_noselect">✖</button>\n                    <div class="ycs_modal_body">\n                        <h2>Instructions</h2>\n                        <ol>\n                            <li>Open video on YouTube</li>\n                            <li>Find the YCS extension under the current video and click the button "Load all" or choose to load the categories\n                            </li>\n                            <li>Write the search query, press Enter or click the button Search</li>\n                        </ol>\n                        <hr />\n                        <h2>FAQ</h2>\n                        <ol>\n                            <li>\n                                <p><strong>How to like, reply to a comment?</strong><br />In the search results, click on the date (like, "2\n                                    months ago") of the comment and will open a new window with an active comment or reply under the video,\n                                    where you can do any action.</p>\n                            </li>\n                            <li>\n                                <p><strong>How do I find all timestamped comments and replies on a video?</strong><br />Click on the "Timestamps" button under the search bar.</p>\n                            </li>\n                            <li>\n                                <p><strong>How can I find addressed to user's comments, replies?</strong><br />Write&nbsp;<code>@</code>&nbsp;in\n                                    the input field.</p>\n                            </li>\n                            <li>\n                                <p><strong>How can I view the contents of the video transcript at a specific minute?</strong><br />You can write\n                                    a search query for Trp. Video, in the&nbsp;<code>mm:ss</code>&nbsp;format. For\n                                    example:<br /><code>:</code>&nbsp;- all the text of the video transcript.<br /><code>15:</code>&nbsp;- all\n                                    the text in the 15th minute.</p>\n                            </li>\n                            <li>\n                                <p><strong>How can I view the comment for a found reply?</strong><br />Click on\n                                    the&nbsp;<strong>▼</strong>&nbsp;button.</p>\n                            </li>\n                            <li>\n                                <p><strong>How can I see the all replies to the found comment?</strong><br />In the header of the found comment,\n                                    you can find the reply icon and the count, to see the replies click on\n                                    the&nbsp;<strong>+</strong>&nbsp;button.</p>\n                            </li>\n                            <li>\n                                <p><strong>How to use search in YouTube shorts?</strong><br />\n                                    Open a YouTube video short. Click badge <strong>YCS</strong> (right of the address bar) and click on the button <strong>Open YT short</strong>.</p>\n                            </li>\n                        </ol>\n\n                        <div>\n                            <p>You can use the search engine (YCS), while loading comments, chat, transcript video.</p>\n                            &nbsp;&nbsp;\n                        </div>\n\n                    </div>\n                </div>\n            </div>\n\n        </div>\n    `),
       null == t || t.appendChild(n);
   }
-  function buildSearchUI(element) {
-    element.innerHTML = `
+function buildSearchUI(element) {
+  element.innerHTML = `
+    <div class="ycs-search-header">
+      <button id="ycs-search-minimize-btn" class="ycs-btn-search ycs-title ycs_noselect" type="button" title="Minimize search area" aria-label="Minimize search area">–</button>
+    </div>
+    <div class="ycs-search-controls">
       <div>
-        <div>
-          <div class="ycs-searchbox">
-            <input
-              title="Write the search query, press Enter or click the button Search."
-              class="ycs-search__input ycs_noselect"
-              type="text"
-              id="ycs-input-search"
-              placeholder="Search"
-            />
-          </div>
-          <select
-            title="Select a search category."
-            name="ycs_search_select"
-            id="ycs_search_select"
-            class="ycs-btn-search ycs-title ycs-search-select ycs_noselect"
-          >
-            <option value="comments">Comments</option>
-            <option value="chat">Chat replay</option>
-            <option value="video">Trpt. video</option>
-            <option selected value="all">All</option>
-          </select>
-          <button
-            id="ycs_btn_search"
-            class="ycs-btn-search ycs-title ycs_noselect"
-            type="button"
-          >
-            Search
-          </button><button
-            id="ycs_btn_clear_search"
-            class="ycs-btn-search ycs-title ycs_noselect ycs-hidden"
-            type="button"
-          >
-            X
-          </button>
-
-          <div class="ycs-ext-search_block">
-            <p id="ycs-search-total-result" class="ycs-title"></p>
-            <div class="ycs-ext-search_option">
-              <label
-                for="ycs_extended_search"
-                class="ycs_noselect ycs-title"
-                title="Enables the use of unix-like search commands"
-              >
-                <input
-                  type="checkbox"
-                  name="ycs_extended_search"
-                  id="ycs_extended_search"
-                />
-                <span class="ycs-ext-search_title">Extended search</span>
-              </label>
-              <div class="ycs-ext-search-opts">
-                <fieldset>
-                  <label
-                    for="ycs_extended_search_title"
-                    class="ycs_noselect ycs-title"
-                    title="Extended search by title"
-                  >
-                    <input
-                      type="radio"
-                      id="ycs_extended_search_title"
-                      name="ycs_ext_search_opts"
-                      value="title"
-                      disabled
-                    />
-                    <span class="ycs-ext-search_title">Title</span>
-                  </label>
-
-                  <label
-                    for="ycs_extended_search_main"
-                    class="ycs_noselect ycs-title"
-                    title="Extended search by main text"
-                  >
-                    <input
-                      type="radio"
-                      id="ycs_extended_search_main"
-                      name="ycs_ext_search_opts"
-                      value="main"
-                      disabled
-                      checked
-                    />
-                    <span class="ycs-ext-search_title">Main</span>
-                  </label>
-                </fieldset>
-              </div>
-              <a
-                href="https://github.com/sonigy/YCS#extended-search"
-                class="ycs-title ycs-ext-search_link"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="How to use"
-                >?</a
-              >
-            </div>
-          </div>
-
-          <button id="ycs_btn_open_modal" class="ycs_noselect" title="FAQ">?</button>
+        <div class="ycs-searchbox">
+          <input
+            title="Write the search query, press Enter or click the button Search."
+            class="ycs-search__input ycs_noselect"
+            type="text"
+            id="ycs-input-search"
+            placeholder="Search"
+          />
         </div>
-        <div class="ycs-search-result-infobar">
-          <div class="ycs-btn-panel ycs_noselect">
+        <select
+          title="Select a search category."
+          name="ycs_search_select"
+          id="ycs_search_select"
+          class="ycs-btn-search ycs-title ycs-search-select ycs_noselect"
+        >
+          <option value="comments">Comments</option>
+          <option value="chat">Chat replay</option>
+          <option value="video">Trpt. video</option>
+          <option selected value="all">All</option>
+        </select>
+        <button
+          id="ycs_btn_search"
+          class="ycs-btn-search ycs-title ycs_noselect"
+          type="button"
+        >
+          Search
+        </button><button
+          id="ycs_btn_clear_search"
+          class="ycs-btn-search ycs-title ycs_noselect ycs-hidden"
+          type="button"
+        >
+          X
+        </button>
+
+        <div class="ycs-ext-search_block">
+          <p id="ycs-search-total-result" class="ycs-title"></p>
+          <div class="ycs-ext-search_option">
+            <label
+              for="ycs_extended_search"
+              class="ycs_noselect ycs-title"
+              title="Enables the use of unix-like search commands"
+            >
+              <input
+                type="checkbox"
+                name="ycs_extended_search"
+                id="ycs_extended_search"
+              />
+              <span class="ycs-ext-search_title">Extended search</span>
+            </label>
+            <div class="ycs-ext-search-opts">
+              <fieldset>
+                <label
+                  for="ycs_extended_search_title"
+                  class="ycs_noselect ycs-title"
+                  title="Extended search by title"
+                >
+                  <input
+                    type="radio"
+                    id="ycs_extended_search_title"
+                    name="ycs_ext_search_opts"
+                    value="title"
+                    disabled
+                  />
+                  <span class="ycs-ext-search_title">Title</span>
+                </label>
+
+                <label
+                  for="ycs_extended_search_main"
+                  class="ycs_noselect ycs-title"
+                  title="Extended search by main text"
+                >
+                  <input
+                    type="radio"
+                    id="ycs_extended_search_main"
+                    name="ycs_ext_search_opts"
+                    value="main"
+                    disabled
+                    checked
+                  />
+                  <span class="ycs-ext-search_title">Main</span>
+                </label>
+              </fieldset>
+            </div>
+            <a
+              href="https://github.com/sonigy/YCS#extended-search"
+              class="ycs-title ycs-ext-search_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="How to use"
+              >?</a
+            >
+          </div>
+        </div>
+
+        <button id="ycs_btn_open_modal" class="ycs_noselect" title="FAQ">?</button>
+      </div>
+      <div class="ycs-search-result-infobar">
+        <div class="ycs-btn-panel ycs_noselect">
             <button
               id="ycs_btn_timestamps"
               data-sort="oldest"
@@ -10106,13 +10109,21 @@
             >
               X
             </button>
-          </div>
         </div>
       </div>
+    </div>
+  `;
 
-    `;
-  }
-  !(function () {
+  // Minimize/unminimize logic
+  const ycsSearch = element;
+  const minimizeBtn = ycsSearch.querySelector('#ycs-search-minimize-btn');
+  minimizeBtn.addEventListener('click', function () {
+    const minimized = ycsSearch.classList.toggle('ycs-search-minimized');
+    minimizeBtn.textContent = minimized ? '+' : '–';
+    minimizeBtn.title = minimized ? 'Expand search area' : 'Minimize search area';
+    minimizeBtn.setAttribute('aria-label', minimizeBtn.title);
+  });
+}  !(function () {
     const t = setInterval(() => {
       Yt() &&
         document.querySelector('#meta.style-scope.ytd-watch-flexy') &&
